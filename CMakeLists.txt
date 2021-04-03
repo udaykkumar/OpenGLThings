@@ -6,7 +6,7 @@ set(CMAKE_PROJECT_VERSION       "0")
 set(CMAKE_PROJECT_VERSION_MAJOR "0")
 set(CMAKE_PROJECT_VERSION_MINOR "0")
 set(CMAKE_PROJECT_VERSION_PATCH "0")
-enable_testing()
+
 
 
 include(cmake/GitUtils.cmake)
@@ -25,21 +25,6 @@ else()
   message( "-- As long as it Ubuntu ( include graphics Support )  "  )
   include_directories(${GLFW3_INCLUDE_DIR})
 endif()
-
-#Boost and Family
-#set(Boost_USE_STATIC_LIBS ON)
-#find_package(Boost  COMPONENTS unit_test_framework  REQUIRED )
-
-
-#Project Compiler Arguments
-#if(APPLE)
-#   message( "-- Detected Apple/MacOS ( Skipping Coverage ) " )
-#   SET(PROJECT_COMPILER_FLAGS "-Wall -std=c++17 ")
-#else()
-#   SET(PROJECT_COMPILER_FLAGS "-Wall -fprofile-arcs -ftest-coverage -std=c++17 ")
-#   SET(PROJECT_LINK_FLAGS    "-lgcov")
-#endif()
-
 
 
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${PROJECT_COMPILER_FLAGS} ")
