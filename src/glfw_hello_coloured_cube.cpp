@@ -5,7 +5,7 @@
 // Include GLEW
 #ifdef __APPLE__
 #  include <OpenGL/gl3.h>
-#else /// your stuff for linux
+#else /// your stuff for Linux
 #	include <GL/glew.h>
 #endif
 
@@ -23,7 +23,7 @@ using namespace glm;
 
 int main( void )
 {
-	// Initialise GLFW
+	// Initialize GLFW
 	if( !glfwInit() )
 	{
 		fprintf( stderr, "Failed to initialize GLFW\n" );
