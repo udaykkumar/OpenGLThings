@@ -1,6 +1,6 @@
 // Include standard headers
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
 
 // Include GLEW
 #ifdef __APPLE__
@@ -26,8 +26,7 @@ int main( void )
 	// Initialize GLFW
 	if( !glfwInit() )
 	{
-		fprintf( stderr, "Failed to initialize GLFW\n" );
-		getchar();
+		std::cerr<< "Failed to initialize GLFW\n" ;
 		return -1;
 	}
 
@@ -39,24 +38,25 @@ int main( void )
 
 	// Open a window and create its OpenGL context
 	window = glfwCreateWindow( 1024, 768, "Tutorial 04 - Colored Cube", NULL, NULL);
-	if( window == NULL ){
-		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
-		getchar();
+	if (window == NULL)
+	{
+		std::cerr << "Failed to open GLFW window.";
+		std::cerr << " If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n";
 		glfwTerminate();
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
 
-	#ifndef __APPLE__
+#ifndef __APPLE__
 	// Initialize GLEW
 	glewExperimental = true; // Needed for core profile
-	if (glewInit() != GLEW_OK) {
-		fprintf(stderr, "Failed to initialize GLEW\n");
-		getchar();
+	if (glewInit() != GLEW_OK)
+	{
+		std::cerr << "Failed to initialize GLEW\n";
 		glfwTerminate();
 		return -1;
 	}
-	#endif
+#endif
 
 
 	// Ensure we can capture the escape key being pressed below
